@@ -17,18 +17,13 @@ class _ListNoteState extends ResumableState<ListNote> {
   final Future<AppDatabase> _database =
       $FloorAppDatabase.databaseBuilder(Constant.DB_NAME).build();
 
+  //ketika halaman ini dimunculkan kembali, maka tarik data dari database lagi
   @override
   void onResume() {
     super.onResume();
     setState(() {
       getListNote();
     });
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-    print("onready");
   }
 
   @override
